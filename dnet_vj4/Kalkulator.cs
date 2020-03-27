@@ -24,8 +24,11 @@ namespace dnet_vj4
             this.x = Double.TryParse(OperandA, out double a);
             this.y = Double.TryParse(OperandB, out double b);
 
-            if(x == false || y == false)
+            if (x == false || y == false)
+            {
                 NijeBroj();
+                return 0;
+            }
             return del(a, b);
            
            
