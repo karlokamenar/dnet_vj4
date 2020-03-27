@@ -14,12 +14,18 @@ namespace dnet_vj4
     {
         public delegate double RacOperacija(double a, double b);
         RacOperacija del;
+        Kalkulator cal;
 
-        
+
+
 
         public Form1()
         {
             InitializeComponent();
+            cal = new Kalkulator();
+            cal.NijeBroj += Je_nije_broj;
+
+
         }
 
         public double plus(double a,double b)
@@ -58,9 +64,7 @@ namespace dnet_vj4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Kalkulator cal = new Kalkulator();
-
-            cal.OperandA = textBox1.Text;
+                        cal.OperandA = textBox1.Text;
             cal.OperandB = textBox2.Text;
             if (comboBox1.SelectedItem.ToString() == "+")
                 del += plus;
@@ -76,7 +80,7 @@ namespace dnet_vj4
             }
             
             
-                cal.NijeBroj += Je_nije_broj;
+               
             
                 label1.Text = cal.Izracun(del).ToString();
         }
